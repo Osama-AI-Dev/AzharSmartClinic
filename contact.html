@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SmartClinic - Contact </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <div class="container">
+        <nav>
+            <a href="index.html" > Home </a>
+            <a href="Services.html"> Services</a>
+            <a href="team.html"> Our Team</a>
+            <a href="booking.html"> Booking </a> 
+            <a href="contact.html"> Contact </a>
+        </nav>
+    </div>
+    <h1> Contact Me  </h1>
+    <form action="success2.html" name="myFrom" onsubmit="return(validata());" >
+        <div class="send">
+              <input type="text" name="Name" placeholder="Name">
+              <br>
+
+              <input type="email" name="Email" placeholder="Email"> 
+              <br>
+
+              <input type="password" name="Password" placeholder="Password">
+              <br>
+
+              <textarea name="Message" placeholder="Message"></textarea>
+            <br>
+            <button type="submit"> Send  </button>
+        </div>
+      <script>
+        function validata(){
+            if(document.myFrom.Name.value == ""){
+                alert("Please Provide your name!");
+                document.myFrom.Name.focus();
+                return false ;
+            }
+             if(document.myFrom.Email.value == ""){
+                alert("Please Provide your Email!");
+                document.myFrom.Email.focus();
+                return false ;
+            }
+            if(!document.myFrom.Email.value.endsWith("@azhar.adu.eg")){
+                alert("Email must end with @azhar.adu.eg");
+                 document.myFrom.Email.focus();
+                return false ;
+            } 
+            if(document.myFrom.Password.value == ""){
+                alert("Please Provide your Password!");
+                document.myFrom.Password.focus();
+                return false ;
+            }
+             if(document.myFrom.Password.value.length < 8){
+                alert("Password must be at least 8 characters!");
+                document.myFrom.Password.focus();
+                return false ;
+            }
+             if(document.myFrom.Message.value == ""){
+                alert("Please Provide your Message!");
+                document.myFrom.Email.focus();
+                return false ;
+            }
+            return(true);
+        }
+      </script>
+
+    </form>
+</body>
+</html>

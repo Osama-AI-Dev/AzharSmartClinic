@@ -1,0 +1,74 @@
+.container{
+    background-color: rgb(58, 53, 53);
+    padding: 15px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+.container a{
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    margin-right: 25px;
+    text-decoration: none;
+}
+.container a:hover {
+    color: yellow;
+}
+h1 {
+    text-align: center;
+}
+h2{
+    color: rgb(12, 12, 158);
+    margin-bottom: 15px;
+}
+p{
+    font-weight: bold;
+    margin: 5px ;
+}
+.send{
+    text-align: center;
+}
+
+.send input, textarea{
+    width: 50%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+
+}
+.send button{
+    width: 53%;
+    padding: 10px;
+    background-color: darkblue;
+    color: white;
+    border-radius: 10px;
+
+}
+ul{
+    list-style-type: square;
+}
+li{
+    padding: 5px;
+}
+.team-container{
+    display: flex;
+    padding: 20px;
+    gap: 30px;
+    justify-content: center;
+    
+   
+}
+.doctor-card img{
+    width: 200px;
+    height: 200px;
+    border-radius: 15px;
+
+}
+.doctor-card  h3{
+    color: rgb(12, 12, 158);
+
+}
+.doctor-card p {
+    color: gray;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SmartClinic - Booking </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="index.html" > Home </a>
+            <a href="Services.html"> Services</a>
+            <a href="team.html"> Our Team</a>
+            <a href="booking.html"> Booking </a> 
+            <a href="contact.html"> Contact </a>
+        </nav>
+    </div>
+    <h1> Book Your Appointment </h1>
+    <form action="success1.html" name="myFrom2" onsubmit="return(Appointment());" >
+        <div class="send">
+              <input type="text" name="PatientName" placeholder="Patient Name">
+              <br>
+
+              <input type="number" name="Age" placeholder="Age"> 
+              <br>
+
+              <input type="text" name="Specialization" placeholder="Specialization">
+              <br>
+
+              <input type="date" name="AppointmentDate" placeholder="Appointment Date">
+              <br>
+
+            <button type="submit"> Send  </button>
+        </div>
+
+    </form>
+    <script>
+        function Appointment(){
+            if(document.myFrom2.PatientName.value == ""){
+                 alert("Please Provide your PatientName!");
+                document.myFrom2.PatientName.focus();
+                return false ;
+            }
+             if(document.myFrom2.Age.value == ""){
+                 alert("Please Provide your Age!");
+                document.myFrom2.Age.focus();
+                return false ;
+            }
+             if(document.myFrom2.Specialization.value == ""){
+                 alert("Please Provide your Specialization!");
+                document.myFrom2.Specialization.focus();
+                return false ;
+            }
+             if(document.myFrom2.AppointmentDate.value == ""){
+                 alert("Please Provide your AppointmentDate!");
+                document.myFrom2.AppointmentDate.focus();
+                return false ;
+            }
+            return(true);
+
+        }
+    </script>
+</body>
+</html>
