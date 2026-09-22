@@ -2,63 +2,100 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>SmartClinic - Booking </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Book your appointment at Azhar Smart Clinic online in a few clicks.">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A9%BA%3C/text%3E%3C/svg%3E">
+    <title>Azhar Smart Clinic - Booking</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <nav>
-            <a href="index.html" > Home </a>
-            <a href="Services.html"> Services</a>
-            <a href="team.html"> Our Team</a>
-            <a href="booking.html"> Booking </a> 
-            <a href="contact.html"> Contact </a>
-        </nav>
-    </div>
-    <h1> Book Your Appointment </h1>
-    <form action="success1.html" name="myFrom2" onsubmit="return(Appointment());" >
-        <div class="send">
-              <input type="text" name="PatientName" placeholder="Patient Name">
-              <br>
+    <header class="site-header">
+        <div id="container">
+            <a href="index.html" class="brand">Azhar Smart Clinic</a>
+            <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="site-nav">
+                <a href="index.html">Home</a>
+                <a href="Services.html">Services</a>
+                <a href="team.html">Our Team</a>
+                <a href="booking.html">Booking</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
 
-              <input type="number" name="Age" placeholder="Age"> 
-              <br>
-
-              <input type="text" name="Specialization" placeholder="Specialization">
-              <br>
-
-              <input type="date" name="AppointmentDate" placeholder="Appointment Date">
-              <br>
-
-            <button type="submit"> Send  </button>
+    <main class="page-wrap">
+        <div class="page-header">
+            <h1>Book Your Appointment</h1>
         </div>
 
-    </form>
-    <script>
-        function Appointment(){
-            if(document.myFrom2.PatientName.value == ""){
-                 alert("Please Provide your PatientName!");
-                document.myFrom2.PatientName.focus();
-                return false ;
-            }
-             if(document.myFrom2.Age.value == ""){
-                 alert("Please Provide your Age!");
-                document.myFrom2.Age.focus();
-                return false ;
-            }
-             if(document.myFrom2.Specialization.value == ""){
-                 alert("Please Provide your Specialization!");
-                document.myFrom2.Specialization.focus();
-                return false ;
-            }
-             if(document.myFrom2.AppointmentDate.value == ""){
-                 alert("Please Provide your AppointmentDate!");
-                document.myFrom2.AppointmentDate.focus();
-                return false ;
-            }
-            return(true);
+        <form id="booking-form" novalidate>
+            <div class="field">
+                <label for="patient-name">Patient name</label>
+                <input type="text" id="patient-name" name="PatientName" placeholder="e.g. Sara Ahmed" required>
+            </div>
 
-        }
+            <div class="field">
+                <label for="patient-age">Age</label>
+                <input type="number" id="patient-age" name="Age" min="0" max="120" placeholder="e.g. 32" required>
+            </div>
+
+            <div class="field">
+                <label for="specialization">Specialization</label>
+                <select id="specialization" name="Specialization" required>
+                    <option value="" disabled selected>Choose a specialization</option>
+                    <option value="Obstetrics & Gynecology">Obstetrics &amp; Gynecology</option>
+                    <option value="Cardiology">Cardiology</option>
+                    <option value="Neurology">Neurology</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label for="appointment-date">Appointment date</label>
+                <input type="date" id="appointment-date" name="AppointmentDate" required>
+            </div>
+
+            <button type="submit">Book Appointment</button>
+            <p class="form-note">We'll confirm your appointment shortly after you submit.</p>
+        </form>
+    </main>
+
+    <footer>
+        &copy; 2026 Azhar Smart Clinic. All rights reserved.
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.getElementById("booking-form").addEventListener("submit", function (e) {
+            e.preventDefault();
+            var form = e.target;
+
+            if (!form.PatientName.value.trim()) {
+                alert("Please provide the patient's name.");
+                form.PatientName.focus();
+                return;
+            }
+            if (!form.Age.value || form.Age.value <= 0) {
+                alert("Please provide a valid age.");
+                form.Age.focus();
+                return;
+            }
+            if (!form.Specialization.value) {
+                alert("Please choose a specialization.");
+                form.Specialization.focus();
+                return;
+            }
+            if (!form.AppointmentDate.value) {
+                alert("Please choose an appointment date.");
+                form.AppointmentDate.focus();
+                return;
+            }
+
+            window.location.href = "success1.html";
+        });
     </script>
 </body>
 </html>
